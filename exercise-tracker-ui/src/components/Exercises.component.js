@@ -1,27 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getExercises } from '../services/api';
 
-let ExercisesData = [
-    {
-        "username": "user1",
-        "description": "cycling",
-        "duration": 80,
-        "date": "2023-12-07 06:55:02"
-    },
-    {
-        "username": "use2",
-        "description": "running",
-        "duration": 60,
-        "date": "2023-12-07 06:55:02"
-    },
-    {
-        "username": "use3",
-        "description": "running",
-        "duration": 60,
-        "date": "2023-12-07 06:55:02"
-    }
-]
+
 
 const Exercises = () => {
+    const [exercises,setExercises] = useState([])
+
+    useEffect(()=>{
+        getExercises().then(data=>setExercises(data))
+    },[])
+
     return (
         <div >
             <div className='container-fluid' style={{ width: '80%', alignItems: 'center' }}>
@@ -43,8 +31,8 @@ const Exercises = () => {
                         </tr>
                     </thead>
                     <tbody >
-                        {ExercisesData.map(ele => {
-                            return <tr key={ele.username}>
+                        {exercises.map(ele => {
+                            return <tr key={ele._id}>
                                 <td>
                                     {ele.username}
                                 </td>
