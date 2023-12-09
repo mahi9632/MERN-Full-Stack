@@ -12,6 +12,12 @@ export const getUsers = async() =>{
     return results?.data
  }
 
+ export const addUsers = async(body) =>{
+   let results = await axios.post(`${baseUrl}/users/add`,body)
+   // console.log(results?.data,"ress");
+   return results?.data
+}
+
  export const addExercise = async(body) =>{
     let results = await axios.post(`${baseUrl}/exercises/add`,body)
     console.log(results?.data,"ress");

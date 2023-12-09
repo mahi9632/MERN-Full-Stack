@@ -9,8 +9,8 @@ const usersSchema = new Schema({
         minlength: 3
     },
     age:{
-        type: String,
-        unique: true,
+        type: Number,
+
     }
 },{
     timestamp: true,
