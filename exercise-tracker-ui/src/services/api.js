@@ -18,3 +18,9 @@ export const getUsers = async() =>{
     return results?.data
  }
 
+ export const deleteExercises = async(id) =>{
+   let results = await axios.delete(`${baseUrl}/exercises/${id}`)
+   console.log(results?.data,"respp");
+   return results?.data
+ }
+
